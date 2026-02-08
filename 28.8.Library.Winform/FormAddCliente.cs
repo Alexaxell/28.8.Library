@@ -18,11 +18,9 @@ namespace _28._8.Library.Winform
             InitializeComponent();
         }
 
-        private static readonly List<Cliente> clienti = new List<Cliente>();
-
         private void btnAddCliente_Click(object sender, EventArgs e)
         {
-            clienti.Add(new Cliente()
+            Archivio.Clienti.Add(new Cliente()
             {
                 CodiceFiscale = txtCodiceFiscale.Text,
                 Nome = txtNome.Text,

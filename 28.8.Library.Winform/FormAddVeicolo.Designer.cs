@@ -106,6 +106,7 @@
             this.btnAddAutomobile.TabIndex = 7;
             this.btnAddAutomobile.Text = "AddAutomobile";
             this.btnAddAutomobile.UseVisualStyleBackColor = true;
+            this.btnAddAutomobile.Click += new System.EventHandler(this.btnAddAutomobile_Click);
             // 
             // label5
             // 
@@ -167,6 +168,7 @@
             this.btnAddFurgone.TabIndex = 20;
             this.btnAddFurgone.Text = "AddFurgone";
             this.btnAddFurgone.UseVisualStyleBackColor = true;
+            this.btnAddFurgone.Click += new System.EventHandler(this.btnAddFurgone_Click);
             // 
             // txtTariffaFurgone
             // 

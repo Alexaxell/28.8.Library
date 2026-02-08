@@ -3,5 +3,10 @@
     public class Automobile : Veicolo
     {
         public int NumeroDiPosti { get; set; }
+
+        public override string ToString()
+        {
+            return base.ToString() + $"{NumeroDiPosti}";
+        }
     }
 }

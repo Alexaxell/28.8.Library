@@ -34,5 +34,29 @@ namespace _28._8.Library.Winform
             var formAddNoleggio = new FormAddNoleggio();
             formAddNoleggio.ShowDialog();
         }
+
+        private void btnGetPrezzoTotaleNoleggiDallaTarga_Click_1(object sender, EventArgs e)
+        {
+            var formGetPrezzoTotaleNoleggiDallaTarga = new FormGetPrezzoTotaleNoleggiDallaTarga();
+            formGetPrezzoTotaleNoleggiDallaTarga.ShowDialog();
+        }
+
+        private void btnGetPrezzoTotaleNoleggiDalCodiceFiscale_Click(object sender, EventArgs e)
+        {
+            var formGetPrezzoTotaleNoleggiDalCodiceFiscale = new FormGetPrezzoTotaleNoleggiDalCodiceFiscale();
+            formGetPrezzoTotaleNoleggiDalCodiceFiscale.ShowDialog();
+        }
+
+        private void btnGetPrezzoTotaleNoleggiPerAuto_Click(object sender, EventArgs e)
+        {
+            var formGetPrezzoTotaleNoleggiPerAuto = new FormGetPrezzoTotaleNoleggiPerAuto();
+            formGetPrezzoTotaleNoleggiPerAuto.ShowDialog();
+        }
+
+        private void btnSalvaSuCSV_Click(object sender, EventArgs e)
+        {
+            var formSalvaSuCSV = new FormSalvaSuCsv();
+            formSalvaSuCSV.ShowDialog();
+        }
     }
 }

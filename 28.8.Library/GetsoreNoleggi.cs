@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,58 +16,58 @@ namespace _28._8.Library
         public double GetPrezzoTotaleNoleggiDallaTarga(string targa)
         {
             double somma = 0;
-            foreach (var veicolo in Veicoli)
+            foreach (var noleggio in Noleggi)
             {
-                if (veicolo.Targa == targa)
-                {
-                    foreach (var noleggio in veicolo.Noleggi)
-                    {
-                        somma += noleggio.Costo;
-                    }
-                }
-                else 
-                    return 0;
-            }
-
-            return somma;
-        }
-
-        /* public double GetPrezzoTotaleNoleggiDalCodiceFiscale(string codiceFiscale)
-        {
-            double somma = 0;
-            foreach (var cliente in Clienti)
-            {
-                if (cliente.CodiceFiscale == codiceFiscale)
-                {
-                    foreach (var noleggio in cliente.Noleggi)
-                    {
-                        somma += noleggio.Costo;
-                    }
-                }
-                else 
-                    return 0;
-            }
-
-            return somma;
-        } */
-
-        public List<double> GetPrezzoTotaleNoleggiPerAuto()
-        {
-            double somma = 0;
-            var listaPrezzi = new List<double>();
-
-            foreach (var veicolo in Veicoli)
-            {
-                foreach (var noleggio in veicolo.Noleggi)
+                if (noleggio.Veicolo.Targa == targa)
                 {
                     somma += noleggio.Costo;
                 }
-
-                listaPrezzi.Add(somma);
+                else 
+                    return 0;
             }
 
-            return listaPrezzi;
+            return somma;
         }
+
+        public double GetPrezzoTotaleNoleggiDalCodiceFiscale(string codiceFiscale)
+        {
+            double somma = 0;
+            foreach (var noleggio in Noleggi)
+            {
+                if (noleggio.Cliente.CodiceFiscale == codiceFiscale)
+                {
+                    somma += noleggio.Costo;
+                }
+                else 
+                    return 0;
+            }
+
+            return somma;
+        }
+
+        public List<double> GetPrezzoTotaleNoleggiPerAuto()
+        {
+            var risultati = new Dictionary<string, double>();
+
+            foreach (var noleggio in Noleggi)
+            {
+                string targa = noleggio.Veicolo.Targa;
+
+                if (!risultati.ContainsKey(targa))
+                    risultati[targa] = 0;
+
+                risultati[targa] += noleggio.Costo;
+            }
+
+            var listaRisultati = new List<double>();
+
+            foreach (var kv in risultati)
+            {
+                listaRisultati.Add(kv.Value);
+            }
+
+            return listaRisultati;
+        } 
 
         public void CaricaSuCSV_Veicolo(string filePath)
         {

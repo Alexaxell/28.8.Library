@@ -5,7 +5,6 @@ namespace _28._8.Library
     public class Noleggio
     {
         public string Id { get; set; }
-        public string Targa { get; set; }
         public DateTime DataInizio { get; set; }
         public int NumeroDiGiorni { get; set; }
         public double Costo{ get; set; }

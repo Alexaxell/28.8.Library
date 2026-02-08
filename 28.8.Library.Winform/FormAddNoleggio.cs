@@ -19,13 +19,31 @@ namespace _28._8.Library.Winform
 
         private void FormAddNoleggio_Load(object sender, EventArgs e)
         {
-            var formAddCliente = new FormAddCliente();
-            formAddCliente.Show();
+            cbxAddCliente.DataSource = null;
+            cbxAddCliente.DataSource = Archivio.Clienti;
+            cbxAddVeicolo.DataSource = null;
+            cbxAddVeicolo.DataSource = Archivio.Veicoli;
         }
 
-        public void AddItem(object item)
+        private void FormAddNoleggio_Activated(object sender, EventArgs e)
         {
-            cbxAddCliente.Items.Add(item);
+            cbxAddCliente.DataSource = null;
+            cbxAddCliente.DataSource = Archivio.Clienti;
+            cbxAddVeicolo.DataSource = null;
+            cbxAddVeicolo.DataSource = Archivio.Veicoli;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Archivio.Noleggi.Add(new Noleggio()
+            {
+                Id = txtId.Text,
+                DataInizio = DateTime.Parse(dtpDataInizio.Text),
+                NumeroDiGiorni = int.Parse(txtNumeroDiGiorni.Text),
+                Costo = int.Parse(txtCosto.Text),
+                Cliente = (Cliente)(cbxAddCliente.SelectedItem),
+                Veicolo = (Veicolo)(cbxAddVeicolo.SelectedItem)
+            });
         }
     }
 }
