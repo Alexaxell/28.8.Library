@@ -2,7 +2,7 @@
 
 namespace _28._8.Library
 {
-    public abstract class Veicolo
+    public class Veicolo
     {
         public string Targa { get; set; }
         public string Modello { get; set; }

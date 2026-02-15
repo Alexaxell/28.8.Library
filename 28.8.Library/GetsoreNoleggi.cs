@@ -22,8 +22,6 @@ namespace _28._8.Library
                 {
                     somma += noleggio.Costo;
                 }
-                else 
-                    return 0;
             }
 
             return somma;
@@ -38,8 +36,6 @@ namespace _28._8.Library
                 {
                     somma += noleggio.Costo;
                 }
-                else 
-                    return 0;
             }
 
             return somma;
@@ -68,47 +64,6 @@ namespace _28._8.Library
 
             return listaRisultati;
         } 
-
-        public void CaricaSuCSV_Veicolo(string filePath)
-        {
-            if (!File.Exists(filePath))
-            {
-                throw new FileNotFoundException("File inesistente.");
-                return;
-            }
-
-            string qualcosa = null;
-            string SEPARATORE = ";";
-            var stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine(qualcosa);
-
-            foreach (var veicolo in Veicoli) 
-                stringBuilder.AppendLine($"{veicolo.Targa}{SEPARATORE}{veicolo.Modello}{SEPARATORE}" +
-                                         $"{veicolo.Tariffa}");
-            
-            File.WriteAllText(filePath, stringBuilder.ToString(), Encoding.UTF8);
-        }
-
-        public void CaricaSuCSV_Noleggi(string filePath)
-        {
-            if (!File.Exists(filePath))
-            {
-                throw new FileNotFoundException("File inesistente.");
-                return;
-            }
-
-            string qualcosa = null;
-            string SEPARATORE = ";";
-            var stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine(qualcosa);
-
-            foreach (var noleggio in Noleggi)
-                stringBuilder.AppendLine($"{noleggio.Id}{SEPARATORE}{noleggio.DataInizio}{SEPARATORE}" +
-                                         $"{noleggio.NumeroDiGiorni}{SEPARATORE}{noleggio.Costo}{SEPARATORE}" +
-                                         $"{noleggio.Cliente}");
-
-            File.WriteAllText(filePath, stringBuilder.ToString(), Encoding.UTF8);
-        }
 
         public void SalvaSuCSV_Clienti(string filePath)
         {

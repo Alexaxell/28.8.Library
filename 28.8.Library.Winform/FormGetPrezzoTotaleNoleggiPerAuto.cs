@@ -24,7 +24,7 @@ namespace _28._8.Library.Winform
             gestoreNoleggi.Veicoli = Archivio.Veicoli;
             gestoreNoleggi.Noleggi = Archivio.Noleggi;
 
-            lstPrezzi.Items.Add(gestoreNoleggi.GetPrezzoTotaleNoleggiPerAuto());
+            lstPrezzi.Items.Add(gestoreNoleggi.GetPrezzoTotaleNoleggiPerAuto().ToString());
         }
     }
 }
